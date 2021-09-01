@@ -140,7 +140,29 @@ function articleMaker({ title, date, firstParagraph, secondParagraph, thirdParag
   paragraph1.textContent = firstParagraph;
   paragraph2.textContent = secondParagraph;
   paragraph3.textContent = thirdParagraph;
-}
+  span.textContent = '+';
+
+  span.addEventListener('click', () => article.classList.toggle('article-open'));
+
+  return article;
+};
+
+const newArticle = {
+  title: 'This is my made up article',
+  date: 'August 1, 2020',
+  firstParagraph: 'This is the 1st paragraph',
+  secondParagraph: 'This is the 2nd paragraph',
+  thirdParagraph: 'This is the 3rd paragraph'
+};
+
+data.push(newArticle);
+
+data.forEach(dataObj => {
+  const article = articleMaker(dataObj);
+  document.querySelector('.articles').appendChild(article);
+});
+
+
 
 
 
